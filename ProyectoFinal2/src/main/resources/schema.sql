@@ -32,3 +32,6 @@ create table proveedor (
 	telefono int not null,
 	primary key (id)
 );
+
+alter table producto add constraint fk_producto_categoria foreign key (categoria_id) references categoria;
+alter table producto add constraint fk_producto_proveedor foreign key (proveedor_id) references proveedor
