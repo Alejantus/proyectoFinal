@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    <title>Formulario Categoria</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <header class="pb-3 pt-3 text-center text-white background-color">
+            <h1>Pescaderia Candy</h1>
+        </header>
+        <nav class="navbar navbar-expand-lg navbar-dark background-color">
+            <a class="navbar-brand" href="/index.html">Inicio</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/index.html">Catálogo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="tabla_categoria.html">Gestión de categorias</a>
+                            <a class="dropdown-item" href="tabla_pescados.html">Gestión de productos</a>
+                            <a class="dropdown-item" href="tabla_proveedor.html">Gestión de proveedores</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Carrito</a>
+                    </li>
+                </ul>           
+            </div>
+        </nav>
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="shadow-lg p-3 mb-5 mt-4 bg-body rounded">
+                            <form class="row g-3 needs-validation" novalidate method="post" action="#" th:action="@{/admin/formularioCategoria/submit}" th:object="${categoria}">
+                            	<h1>
+                            		<span th:text="${categoria.idCategoria} ? 'Editar' : 'Nueva'"></span> categoría
+                            	</h1>
+                            	<input typr="hidden" th:field="*{id}" id="id" />
+                                <div class="col-md-12 position-relative ">
+                                    <label for="nombre" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="nombre" placeholder="Nombre..." required th:field="*{nombre}">
+                                    <!-- Mensajes para validación   -->
+                                    <div class="valid-tooltip">¡Campo válido!</div>
+                                    <div class="invalid-tooltip">Debe completar los datos.</div>
+                                </div>
+                                <div class="col-md-12 position-relative ">
+                                    <label for="imagen" class="form-label">URL imagen</label>
+                                    <input type="text" class="form-control" id="imagen" placeholder="www.webaleatoria..." required th:field="*{imagen}">
+                                    <!-- Mensajes para validación   -->
+                                    <div class="valid-tooltip">¡Campo válido!</div>
+                                    <div class="invalid-tooltip">Debe completar los datos.</div>
+                                </div>
+                                <div class="col-md-12 position-relative ">
+                                    <label for="destacada" class="form-label">Es destacada</label>
+                                    <input type="checkbox" id="imagen" value="true" th:field="*{destacada}">                           
+                                </div>                                
+                                <div class="col-12">
+                                    <button class="btn btn-warning fw-bold float-end" type="submit">Enviar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+        <script>
+            (function() {
+                'use strict'
+
+                // Obtener todos los formularios a los que queremos aplicar estilos de validación de Bootstrap personalizados
+                var forms = document.querySelectorAll('.needs-validation')
+
+                //Recorremos los forms y evitamos en envío sin validacion
+                Array.prototype.slice.call(forms)
+                    .forEach(function(form) {
+                        form.addEventListener('submit', function(event) {
+                            if (!form.checkValidity()) {
+                                event.preventDefault()
+                                event.stopPropagation()
+                            }
+                            form.classList.add('was-validated')
+                        }, false)
+                    })
+            })()
+        </script>
+</body>
+
+</html>

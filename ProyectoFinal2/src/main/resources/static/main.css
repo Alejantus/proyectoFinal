@@ -1,0 +1,74 @@
+.background-color {
+    background-color: lightskyblue;
+    color: white;
+}
+
+body {
+    color: #666366;
+    font-family: "Work Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+.div {
+    display: block;
+}
+
+.products .envoltura {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    position: relative;
+}
+
+.products .products-grid {
+    padding: 0 0 20px;
+    position: relative;
+}
+
+.products {
+    margin: 0 0 10px;
+}
+
+.product-items {
+    margin-left: -10px;
+    margin-right: -10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+}
+
+ol {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    padding-inline-start: 40px;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+
+li.product-item {
+    margin: 0 10px 20xp;
+    padding: 0;
+}
+
+.product-item {
+    box-sizing: border-box;
+    flex: 0 1 auto;
+    border: solid 1px #dbdbdb;
+    overflow: hidden;
+    position: relative;
+}
+
+li {
+    display: list-item;
+}
+
+.product-item-info {
+    width: 100%;
+    max-width: 100%;
+}
