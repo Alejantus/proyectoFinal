@@ -41,52 +41,63 @@
 							<a class="nav-link" href="#">Link</a>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" role="button"
-								data-bs-toggle="dropdown">Admin</a>
-							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="admin/tabla_producto.html" th:href="@{/admin/tablaProducto}">Tabla producto</a></li>
-								<li><a class="dropdown-item" href="admin/tabla_categoria.html" th:href="@{/admin/tablaCategoria}">Tabla categoria</a></li>
-								<li><a class="dropdown-item" href="admin/tabla_proveedor.html" th:href="@{/admin/tablaProveedor}">Tabla proveedor</a></li>
+							 <button class="btn background-color dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+   								Admin
+ 							</button>
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+								<li><a class="dropdown-item" href="admin/tabla_producto.html"
+										th:href="@{/admin/tablaProducto}">Tabla producto</a></li>
+								<li><a class="dropdown-item" href="admin/tabla_categoria.html"
+										th:href="@{/admin/tablaCategoria}">Tabla categoria</a></li>
+								<li><a class="dropdown-item" href="admin/tabla_proveedor.html"
+										th:href="@{/admin/tablaProveedor}">Tabla proveedor</a></li>
 							</ul>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="login.html">Login</a>
+							<a class="nav-link" href="login.html" th:href="@{/login}">Login</a>
 						</li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 		<main>
-			<div style="padding-top: 20px;padding-right: 10px;padding-bottom: 20px;padding-left: 10px;"></div>
-			<div style="padding-top: 20px;padding-right: 10px;padding-bottom: 20px;padding-left: 10px;"></div>
-			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-				<div class="row">
-					<div class="col-sm-3" th:each="producto : ${productos}">
-						<a href="#" th:href="@{/product/{id}(id=${producto.id})}">
-							<div class="col-item">
-								<div class="photo">
-									<img src="http://placehold.it/350x260"
-										th:src="${#strings.isEmpty(producto.imagen)} ? 'http://placehold.it/350x260' : ${producto.imagen}"
-										class="img-responsive" alt="a" />
-								</div>
-								<div class="info">
-									<div class="row">
-										<div class="price col-md-12">
-											<h5 th:text="${#strings.abbreviate(producto.nombre,65)}">Nombre</h5>
-											<div class="price-text-color">
-												<span th:text="${producto.descuento == 0} 
-															? ${#numbers.formatCurrency(producto.precio)} 
-															: ${#numbers.formatCurrency(producto.precio * (1 - producto.descuento))}">10</span>
+    <div style="padding-top: 20px;padding-right: 10px;padding-bottom: 20px;padding-left: 10px;"></div>
+    <div style="padding-top: 20px;padding-right: 10px;padding-bottom: 20px;padding-left: 10px;"></div>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div class="row">
+            <div class="col-sm-3" th:each="producto : ${productos}">
+                <a href="#" th:href="@{/product/{id}(id=${producto.id})}">
+                <div class="col-item">
+                        <div class="photo">
+                            <img src="http://placehold.it/350x260"
+                            th:src="${#strings.isEmpty(producto.imagen)} ? 'http://placehold.it/350x260' : ${producto.imagen}"
+                            class="img-responsive" alt="a" />
+                        </div>
+                       <div class="info">
+                            <div class="row">
+                                <div class="price col-md-12">
+                                    <h5 th:text="${#strings.abbreviate(producto.nombre,65)}">Nombre</h5>
+                                    <div class="price-text-color">
+                                    <span th:text="${producto.descuento == 0} 
+                                            ? ${#numbers.formatCurrency(producto.precio)} 
+                                            : ${#numbers.formatCurrency(producto.precio * (1 - producto.descuento))}">10</span>
 
-												<th:block th:if="${producto.descuento > 0}">
-													<span class="price-original"
-														th:text="${#numbers.formatCurrency(producto.precio)}"></span>
-													<span class="label label-danger"
-														th:text=${#numbers.formatPercent(producto.descuento,1,0)}></span>
-												</th:block>
-											</div>
-										</div>
-		</main>
+                                     <th:block th:if="${producto.descuento > 0}">
+                                         <span class="price-original"
+                                            th:text="${#numbers.formatCurrency(producto.precio)}"></span>
+                                         <span class="label label-danger"
+                                            th:text=${#numbers.formatPercent(producto.descuento,1,0)}></span>
+                                    </th:block>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+</main>
 	</div>
 </body>
 
