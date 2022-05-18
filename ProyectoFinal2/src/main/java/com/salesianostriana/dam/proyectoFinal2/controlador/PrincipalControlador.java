@@ -26,7 +26,7 @@ public class PrincipalControlador {
 	
 
 	
-	@GetMapping("/")
+	@GetMapping("/principal")
 	public String index(@RequestParam(name="idCategoria", required=false) Long idCategoria, Model model) {		
 		
 		model.addAttribute("categorias", categoriaService.findAll());
@@ -44,7 +44,7 @@ public class PrincipalControlador {
 		return "index";
 	}
 	
-	@GetMapping("/producto/{id}")
+	@GetMapping("/principal/producto/{id}")
 	public String showDetails(@PathVariable("id") Long id, Model model) {
 		
 		//Buscamos el producto por id

@@ -11,56 +11,40 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
-
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private UsuarioRepo usuarios;
+	@Autowired
+	private UsuarioRepo usuarios;
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService());
-    }
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(userDetailsService());
+	}
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                .csrf().disable()
-                .authorizeRequests()
-                .antMatchers("/private/**").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/admin/**", "/gestion/**").hasRole("ADMIN")
-                .anyRequest().permitAll()
-                .and().exceptionHandling().accessDeniedPage("/error")
-                .and().formLogin().loginPage("/").loginProcessingUrl("/login")
-                		.defaultSuccessUrl("/private")
-                		.failureUrl("/login-error").permitAll()
-                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/").permitAll();
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.csrf().disable().authorizeRequests().antMatchers("/private/**").hasAnyRole("USER", "ADMIN")
+				.antMatchers("/admin/**", "/gestion/**").hasRole("ADMIN").anyRequest().permitAll().and()
+				.exceptionHandling().accessDeniedPage("/error").and().formLogin().loginPage("/")
+				.loginProcessingUrl("/login").defaultSuccessUrl("/private").failureUrl("/login-error").permitAll().and()
+				.logout().logoutUrl("/logout").logoutSuccessUrl("/principal").permitAll();
 
-    }
+	}
 
-    @Bean
-    @Override
-    public UserDetailsService userDetailsService() {
+	@Bean
+	@Override
+	public UserDetailsService userDetailsService() {
 
-        InMemoryUserDetailsManager userDetailsManager = new InMemoryUserDetailsManager();
+		InMemoryUserDetailsManager userDetailsManager = new InMemoryUserDetailsManager();
 
-        usuarios.getUsuarios()
-                .stream()
-                .map(u -> {
-                    return User
-                            .withUsername(u.getUsername())
-                            .password("{noop}"+ u.getPassword())
-                            .roles(u.getRole())
-                            .build();
+		usuarios.getUsuarios().stream().map(u -> {
+			return User.withUsername(u.getUsername()).password("{noop}" + u.getPassword()).roles(u.getRole()).build();
 
-                })
-                .forEach(userDetailsManager::createUser);
+		}).forEach(userDetailsManager::createUser);
 
+		return userDetailsManager;
 
-        return userDetailsManager;
-
-
-    }
+	}
 }

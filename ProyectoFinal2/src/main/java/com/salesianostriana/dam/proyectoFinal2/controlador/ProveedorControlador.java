@@ -13,7 +13,6 @@ import com.salesianostriana.dam.proyectoFinal2.servicios.ProductoServicio;
 import com.salesianostriana.dam.proyectoFinal2.servicios.ProveedorServicio;
 
 @Controller
-@RequestMapping("/admin")
 public class ProveedorControlador {
 	
 	@Autowired

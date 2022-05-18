@@ -7,9 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,6 +20,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 public class Producto {
 
 	@Id
@@ -27,7 +30,10 @@ public class Producto {
 	private double precio;
 	private double descuento;
 	private String imagen;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaCaducidad;
+	
 	private String descripcion;
 	private boolean disponible;
 	@ManyToOne
