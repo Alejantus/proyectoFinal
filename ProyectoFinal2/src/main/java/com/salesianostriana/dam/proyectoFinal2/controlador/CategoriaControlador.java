@@ -14,7 +14,6 @@ import com.salesianostriana.dam.proyectoFinal2.servicios.CategoriaServicio;
 import com.salesianostriana.dam.proyectoFinal2.servicios.ProductoServicio;
 
 @Controller
-@RequestMapping("/admin")
 public class CategoriaControlador {
 
 	@Autowired
