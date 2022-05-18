@@ -25,7 +25,7 @@ public class Producto {
 
 	@Id
 	@GeneratedValue
-	private long idProducto;
+	private long id;
 	private String nombre;
 	private double precio;
 	private double descuento;

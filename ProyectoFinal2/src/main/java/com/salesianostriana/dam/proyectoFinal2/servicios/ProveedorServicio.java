@@ -27,7 +27,7 @@ public class ProveedorServicio {
 	}
 	
 	public Proveedor delete(Proveedor Proveedor) {
-		Proveedor result = findById(Proveedor.getIdProveedor());
+		Proveedor result = findById(Proveedor.getId());
 		proveedorRepositorio.delete(result);
 		return result;
 	}

@@ -44,7 +44,7 @@ public class PrincipalControlador {
 		return "index";
 	}
 	
-	@GetMapping("/principal/producto/{id}")
+	@GetMapping("/producto/{id}")
 	public String showDetails(@PathVariable("id") Long id, Model model) {
 		
 		//Buscamos el producto por id

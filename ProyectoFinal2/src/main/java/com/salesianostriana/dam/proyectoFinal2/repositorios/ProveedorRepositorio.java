@@ -11,6 +11,6 @@ import com.salesianostriana.dam.proyectoFinal2.modelo.Proveedor;
 @Repository
 public interface ProveedorRepositorio extends JpaRepository<Proveedor, Long> {
 
-	@Query("select p.idProveedor from Proveedor p")
+	@Query("select p.id from Proveedor p")
 	public List<Long> obtenerIds();
 }

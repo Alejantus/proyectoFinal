@@ -27,7 +27,7 @@ public class CategoriaServicio {
 	}
 	
 	public Categoria delete(Categoria categoria) {
-		Categoria result = findById(categoria.getIdCategoria());
+		Categoria result = findById(categoria.getId());
 		repositorio.delete(result);
 		return result;
 	}

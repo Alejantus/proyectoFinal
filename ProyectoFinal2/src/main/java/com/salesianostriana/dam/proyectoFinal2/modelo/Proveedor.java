@@ -18,7 +18,7 @@ public class Proveedor {
 	
 	@Id
 	@GeneratedValue
-	private long idProveedor;
+	private long id;
 	private String nombre;
 	private int telefono;
 	private String direccion;

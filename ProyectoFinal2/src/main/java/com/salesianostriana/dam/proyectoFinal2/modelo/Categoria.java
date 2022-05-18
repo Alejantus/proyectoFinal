@@ -19,7 +19,7 @@ public class Categoria {
 
 	@Id
 	@GeneratedValue
-	private long idCategoria;
+	private long id;
 	private String nombre;
 	private boolean destacada;
 	private String imagen;

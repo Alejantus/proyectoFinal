@@ -39,7 +39,7 @@ public class ProductoServicio {
 	}
 	
 	public Producto delete(Producto producto) {
-		Producto result = findById(producto.getIdProducto());
+		Producto result = findById(producto.getId());
 		productoRepositorio.delete(result);
 		return result;
 	}
