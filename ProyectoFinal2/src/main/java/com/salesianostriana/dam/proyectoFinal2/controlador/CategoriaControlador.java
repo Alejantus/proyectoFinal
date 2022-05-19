@@ -37,7 +37,7 @@ public class CategoriaControlador {
 	public String submitNuevaCategoria(@ModelAttribute("categoria") Categoria categoria, Model model) {
 		
 		categoriaService.save(categoria);
-		return "redirect:/admin/tablaCategoria";
+		return "redirect:/tablaCategoria";
 	}
 	
 	@GetMapping("/tablaCategoria/editar/{id}")
@@ -64,7 +64,7 @@ public class CategoriaControlador {
 			if (productoService.numeroProductosCategoria(categoria) == 0) {
 				categoriaService.delete(categoria);				
 			} else {
-				return "redirect:admin/tablaCategoria/?error=true";
+				return "redirect:/tablaCategoria/?error=true";
 			}
 			
 		} 

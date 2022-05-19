@@ -51,7 +51,7 @@
 							<div class="p-3 mb-2 bg-primary bg-gradient fw-bold text-white">Registro proveedor</div>
 							<form class="row g-3 needs-validation" novalidate method="post" action="#"
 								th:action="@{/formularioProveedor/submit}" th:object="${proveedor}">
-								<h1><span th:text="${proveedor.id} ? 'Editar' : 'Nuevo'"></span> producto</h1>
+								<h1><span th:text="${proveedor.id} ? 'Editar' : 'Nuevo'"></span> proveedor</h1>
 								<input type="hidden" th:field="*{id}" id="id" />
 								<div class="col-md-12 position-relative ">
 									<label for="nombre" class="form-label">Nombre</label>
