@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianostriana.dam.proyectoFinal2.modelo.Producto;
 import com.salesianostriana.dam.proyectoFinal2.servicios.CategoriaServicio;
@@ -43,11 +44,11 @@ public class ProductoControlador {
 	public String submitNuevoProducto(Producto producto, Model model) {
 
 		productoService.save(producto);
-		return "redirect:/admin/tablaProducto";
+		return "redirect:/tablaProducto";
 
 	}
 	
-	@GetMapping("/editar/{id}")
+	@GetMapping("/tablaProducto/editar/{id}")
 	public String editarProducto(@PathVariable("id") Long id, Model model) {
 
 		Producto producto = productoService.findById(id);
@@ -55,16 +56,16 @@ public class ProductoControlador {
 		if (producto != null) {
 			model.addAttribute("producto", producto);
 			model.addAttribute("categorias", categoriaService.findAll());
-			model.addAttribute("proveedor",proveedorServicio.findAll());
+			model.addAttribute("proveedor", proveedorServicio.findAll());
 			return "admin/formulario_producto";
 		} else {
-			return "redirect:/admin/tablaProducto";
+			return "redirect:/tablaProducto";
 		}
 
 	}
 	
 	
-	@GetMapping("/borrar/{id}")
+	@GetMapping("/tablaProducto/borrar/{id}")
 	public String borrarProducto(@PathVariable("id") Long id, Model model) {
 
 		Producto producto = productoService.findById(id);
@@ -73,7 +74,7 @@ public class ProductoControlador {
 			productoService.delete(producto);
 		}
 
-		return "redirect:/admin/tablaProducto";
+		return "redirect:/tablaProducto";
 
 	}
 

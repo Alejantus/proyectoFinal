@@ -50,9 +50,9 @@
 						<div class="shadow-lg p-3 mb-5 mt-4 bg-body rounded">
 							<div class="p-3 mb-2 bg-primary bg-gradient fw-bold text-white">Registro proveedor</div>
 							<form class="row g-3 needs-validation" novalidate method="post" action="#"
-								th:action="@{/admin//formularioProveedor/submit}" th:object="${proveedor}">
-								<h1><span th:text="${producto.id} ? 'Editar' : 'Nuevo'"></span> producto</h1>
-								<input type="hidden" th:field="*{idProveedor}" id="id" />
+								th:action="@{/formularioProveedor/submit}" th:object="${proveedor}">
+								<h1><span th:text="${proveedor.id} ? 'Editar' : 'Nuevo'"></span> producto</h1>
+								<input type="hidden" th:field="*{id}" id="id" />
 								<div class="col-md-12 position-relative ">
 									<label for="nombre" class="form-label">Nombre</label>
 									<input type="text" class="form-control" id="nombre" placeholder="Nombre..."
@@ -86,9 +86,9 @@
 									<div class="invalid-tooltip">Debe completar los datos.</div>
 								</div>
 								<div class="col-md-12 position-relative ">
-									<label for="nombre" class="form-label">Telefono</label>
-									<input type="text" class="form-control" id="nombre" placeholder="12345678..."
-										th:field="*{telefono}" required>
+									<label for="nombre" class="form-label">Email</label>
+									<input type="text" class="form-control" id="nombre" placeholder="ejemplo@gmail..."
+										th:field="*{email}" required>
 									<!-- Mensajes para validación   -->
 									<div class="valid-tooltip">¡Campo válido!</div>
 									<div class="invalid-tooltip">Debe completar los datos.</div>

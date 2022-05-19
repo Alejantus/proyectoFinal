@@ -51,9 +51,9 @@
 							<form class="row g-3 needs-validation" novalidate method="post" action="#"
 								th:action="@{/admin/formularioCategoria/submit}" th:object="${categoria}">
 								<h1>
-									<span th:text="${categoria.idCategoria} ? 'Editar' : 'Nueva'"></span> categoría
+									<span th:text="${categoria.id} ? 'Editar' : 'Nueva'"></span> categoría
 								</h1>
-								<input typr="hidden" th:field="*{id}" id="id" />
+								<input type="hidden" th:field="*{id}" id="id" />
 								<div class="col-md-12 position-relative ">
 									<label for="nombre" class="form-label">Nombre</label>
 									<input type="text" class="form-control" id="nombre" placeholder="Nombre..." required
@@ -65,7 +65,7 @@
 								<div class="col-md-12 position-relative ">
 									<label for="imagen" class="form-label">URL imagen</label>
 									<input type="text" class="form-control" id="imagen"
-										placeholder="www.webaleatoria..." required th:field="*{imagen}">
+										placeholder="www.webaleatoria..." th:field="*{imagen}">
 									<!-- Mensajes para validación   -->
 									<div class="valid-tooltip">¡Campo válido!</div>
 									<div class="invalid-tooltip">Debe completar los datos.</div>

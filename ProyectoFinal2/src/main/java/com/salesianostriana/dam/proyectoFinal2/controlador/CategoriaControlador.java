@@ -47,9 +47,9 @@ public class CategoriaControlador {
 		
 		if (categoria != null) {
 			model.addAttribute("categoria", categoria);
-			return "admin/form-categoria";
+			return "admin/formulario_categoria";
 		} else {
-			return "redirect:/admin/categoria/";
+			return "redirect:/tablaCategoria";
 		}
 		
 	}
@@ -64,14 +64,12 @@ public class CategoriaControlador {
 			if (productoService.numeroProductosCategoria(categoria) == 0) {
 				categoriaService.delete(categoria);				
 			} else {
-				
-			//Se ha agregado el parámetro error con valor true a la ruta	
 				return "redirect:admin/tablaCategoria/?error=true";
 			}
 			
 		} 
 
-		return "redirect:/admin/tablaCategoria";
+		return "redirect:/tablaCategoria";
 		
 		
 	}
