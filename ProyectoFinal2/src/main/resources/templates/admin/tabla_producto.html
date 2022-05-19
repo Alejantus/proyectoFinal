@@ -74,7 +74,7 @@
 								<td th:text="${producto.nombre}">Nombre</td>
 								<td th:text="${producto.precio}">Precio</td>
 								<td class="operaciones">
-									<a href="#" th:href="@{/admin/editar/{id}(id=${producto.id})}"
+									<a href="#" th:href="@{/tablaProducto/editar/{id}(id=${producto.id})}"
 										class="btn btn-primary">Editar</a>
 									<button type="button" class="btn btn-danger" data-toggle="modal"
 										data-target="#delete-modal" th:data-id="${producto.id}">Borrar</button>

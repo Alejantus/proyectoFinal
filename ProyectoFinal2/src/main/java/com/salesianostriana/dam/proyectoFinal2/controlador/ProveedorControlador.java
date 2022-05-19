@@ -23,7 +23,7 @@ public class ProveedorControlador {
 		
 	@GetMapping("/tablaProveedor")
 	public String index(Model model) {
-		model.addAttribute("productos", proveedorServicio.findAll());
+		model.addAttribute("proveedor", proveedorServicio.findAll());
 		return "admin/tabla_proveedor";
 	}
 
@@ -42,7 +42,7 @@ public class ProveedorControlador {
 
 	}
 	
-	@GetMapping("/formularioProveedor/editar/{id}")
+	@GetMapping("/tablaProveedor/editar/{id}")
 	public String editarProducto(@PathVariable("id") Long id, Model model) {
 
 		Proveedor proveedor = proveedorServicio.findById(id);

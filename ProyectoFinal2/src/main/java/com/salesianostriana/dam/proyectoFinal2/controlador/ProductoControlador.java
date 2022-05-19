@@ -47,8 +47,8 @@ public class ProductoControlador {
 
 	}
 	
-	@GetMapping("/editar/{idProducto}")
-	public String editarProducto(@PathVariable("idProducto") Long id, Model model) {
+	@GetMapping("/editar/{id}")
+	public String editarProducto(@PathVariable("id") Long id, Model model) {
 
 		Producto producto = productoService.findById(id);
 
@@ -64,8 +64,8 @@ public class ProductoControlador {
 	}
 	
 	
-	@GetMapping("/borrar/{idProducto}")
-	public String borrarProducto(@PathVariable("idProducto") Long id, Model model) {
+	@GetMapping("/borrar/{id}")
+	public String borrarProducto(@PathVariable("id") Long id, Model model) {
 
 		Producto producto = productoService.findById(id);
 

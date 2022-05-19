@@ -40,7 +40,7 @@ public class CategoriaControlador {
 		return "redirect:/admin/tablaCategoria";
 	}
 	
-	@GetMapping("/editar/{id}")
+	@GetMapping("/tablaCategoria/editar/{id}")
 	public String editarCategoria(@PathVariable("id") Long id, Model model) {
 		
 		Categoria categoria = categoriaService.findById(id);
@@ -54,7 +54,7 @@ public class CategoriaControlador {
 		
 	}
 
-	@GetMapping("/borrar/{id}")
+	@GetMapping("/tablaCategoria/borrar/{id}")
 	public String borrarCategoria(@PathVariable("id") Long id, Model model) {
 		
 		Categoria categoria = categoriaService.findById(id);
