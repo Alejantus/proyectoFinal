@@ -1,6 +1,5 @@
 package com.salesianostriana.dam.proyectoFinal2.seguridad;
 
-import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -28,21 +27,17 @@ public class UsuarioRepo {
 	public void init() {
 		usuarios = List.of(
 				Usuario.builder()
-					.username("luismi")
-					.password("12345678")
+					.username("admin")
+					.password("admin")
 					.role("ADMIN")
-					.nombre("Luis Miguel")
-					.apellidos("López Magaña")
-					.fechaNacimiento(LocalDate.of(1982, 1, 1))
+					.nombre("Administrador")
 					.build()
 				,
 				Usuario.builder()
-				.username("angel")
-				.password("87654321")
+				.username("usuario")
+				.password("1234")
 				.role("USER")
-				.nombre("Ángel")
-				.apellidos("Naranjo González")
-				.fechaNacimiento(LocalDate.of(1976, 1, 1))
+				.nombre("Usuario")				
 				.build()
 				
 				
