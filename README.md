@@ -1,3 +1,3 @@
-# Mi pescaderia
+# Mi proyecto final de curso
 
-Este es mi proyecto
+Mi proyecto consiste en la gestión de una pescaderia, para ello cree las clases 
