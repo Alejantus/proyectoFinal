@@ -6,8 +6,10 @@ y los distintivos paquetes
 # Usuario admin
 
 usuario : admin
+
 password : admin
 
 # Usuario usuario
 usuario : usuario
+
 password : 1234
