@@ -72,3 +72,12 @@ li {
     width: 100%;
     max-width: 100%;
 }
+
+.anchura-altura{
+    width: 20%;
+    height: 20%;
+}
+
+thead tr:first-child{
+	width: 20%;
+}

@@ -12,23 +12,23 @@ import com.salesianostriana.dam.proyectoFinal2.repositorios.ProveedorRepositorio
 public class ProveedorServicio {
 	
 	@Autowired
-	private ProveedorRepositorio proveedorRepositorio;
+	private ProveedorRepositorio repositorio;
 	
 	public List<Proveedor> findAll() {
-		return proveedorRepositorio.findAll();
+		return repositorio.findAll();
 	}	
 	
 	public Proveedor save(Proveedor Proveedor) {
-		return proveedorRepositorio.save(Proveedor);
+		return repositorio.save(Proveedor);
 	}
 	
 	public Proveedor findById(Long id) {
-		return proveedorRepositorio.findById(id).orElse(null);
+		return repositorio.findById(id).orElse(null);
 	}
 	
 	public Proveedor delete(Proveedor Proveedor) {
 		Proveedor result = findById(Proveedor.getId());
-		proveedorRepositorio.delete(result);
+		repositorio.delete(result);
 		return result;
 	}
 }

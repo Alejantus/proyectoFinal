@@ -15,15 +15,15 @@ import com.salesianostriana.dam.proyectoFinal2.servicios.ProveedorServicio;
 public class ProveedorControlador {
 	
 	@Autowired
-	private ProveedorServicio proveedorServicio;
+	private ProveedorServicio proveedorService;
 	
 	@Autowired
-	private ProductoServicio productoServicio;
+	private ProductoServicio productoService;
 	
 		
 	@GetMapping("/tablaProveedor")
 	public String index(Model model) {
-		model.addAttribute("proveedor", proveedorServicio.findAll());
+		model.addAttribute("proveedor", proveedorService.findAll());
 		return "admin/tabla_proveedor";
 	}
 
@@ -37,21 +37,21 @@ public class ProveedorControlador {
 	@PostMapping("/formularioProveedor/submit")
 	public String submitNuevoProducto(Proveedor proveedor, Model model) {
 
-		proveedorServicio.save(proveedor);
-		return "redirect:/admin/tablaProveedor";
+		proveedorService.save(proveedor);
+		return "redirect:/tablaProveedor";
 
 	}
 	
 	@GetMapping("/tablaProveedor/editar/{id}")
 	public String editarProducto(@PathVariable("id") Long id, Model model) {
 
-		Proveedor proveedor = proveedorServicio.findById(id);
+		Proveedor proveedor = proveedorService.findById(id);
 
 		if (proveedor != null) {
 			model.addAttribute("proveedor", proveedor);
-			return "admin/formulario_producto";
+			return "admin/formulario_proveedor";
 		} else {
-			return "redirect:/admin/tablaProveedor";
+			return "redirect:/tablaProveedor";
 		}
 
 	}
@@ -60,15 +60,15 @@ public class ProveedorControlador {
 	@GetMapping("/tablaProveedor/borrar/{id}")
 	public String borrarProducto(@PathVariable("id") Long id, Model model) {
 
-		Proveedor proveedor = proveedorServicio.findById(id);
+		Proveedor proveedor = proveedorService.findById(id);
 
-		if (productoServicio.numeroProductosCategoria(proveedor) == 0) {
-			proveedorServicio.delete(proveedor);
+		if (productoService.numeroProductosCategoria(proveedor) == 0) {
+			proveedorService.delete(proveedor);
 		}else {
-			return "redirect:/admin/tablaProveedor/?error=true";
+			return "redirect:/tablaProveedor/?error=true";
 		}
 
-		return "redirect:/admin/tablaProducto";
+		return "redirect:/tablaProveedor";
 
 	}
 }
