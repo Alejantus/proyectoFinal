@@ -30,6 +30,10 @@ public class ProductoServicio {
 		return productoRepositorio.findByCategoriaId(categoriaId);
 	}
 	
+	public List<Producto> findByNombre(String nombre){
+		return productoRepositorio.findByNombreContainingIgnoreCase(nombre);
+	}
+	
 	public Producto findById(Long id) {
 		return productoRepositorio.findById(id).orElse(null);
 	}

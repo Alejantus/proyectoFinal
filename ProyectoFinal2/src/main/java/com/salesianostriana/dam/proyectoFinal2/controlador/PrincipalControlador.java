@@ -26,7 +26,7 @@ public class PrincipalControlador {
 	
 
 	
-	@GetMapping("/principal")
+	@GetMapping("/")
 	public String index(@RequestParam(name="idCategoria", required=false) Long idCategoria, Model model) {		
 		
 		model.addAttribute("categorias", categoriaService.findAll());
@@ -56,7 +56,7 @@ public class PrincipalControlador {
 			return "detail";
 		}
 		
-		return "redirect:/";
+		return "redirect:/principal";
 		
 	}
 }

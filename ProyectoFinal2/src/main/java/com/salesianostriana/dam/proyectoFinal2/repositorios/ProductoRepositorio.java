@@ -26,6 +26,8 @@ public interface ProductoRepositorio extends JpaRepository<Producto, Long>{
 	
 	@Query("select count(p) from Producto p where p.proveedor = ?1")
 	public int findNumProductosByProveedor(Proveedor proveedor);
+	
+	public  List<Producto> findByNombreContainingIgnoreCase(String nombre);
 
 
 
