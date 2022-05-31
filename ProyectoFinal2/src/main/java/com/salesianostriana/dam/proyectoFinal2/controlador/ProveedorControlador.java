@@ -21,24 +21,24 @@ public class ProveedorControlador {
 	private ProductoServicio productoService;
 	
 		
-	@GetMapping("/tablaProveedor")
+	@GetMapping("/admin/tablaProveedor")
 	public String index(Model model) {
 		model.addAttribute("proveedor", proveedorService.findAll());
 		return "admin/tabla_proveedor";
 	}
 
-	@GetMapping("/formularioProveedor")
+	@GetMapping("/admin/formularioProveedor")
 	public String nuevaProducto(Model model) {
 		
 		model.addAttribute("proveedor", new Proveedor());
 		return "admin/formulario_proveedor";
 	}
 
-	@PostMapping("/formularioProveedor/submit")
+	@PostMapping("/admin/formularioProveedor/submit")
 	public String submitNuevoProducto(Proveedor proveedor, Model model) {
 
 		proveedorService.save(proveedor);
-		return "redirect:/tablaProveedor";
+		return "redirect:/admin/tablaProveedor";
 
 	}
 	

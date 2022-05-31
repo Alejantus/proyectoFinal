@@ -26,13 +26,13 @@ public class ProductoControlador {
 	@Autowired
 	private ProveedorServicio proveedorServicio;
 
-	@GetMapping("/tablaProducto")
+	@GetMapping("/admin/tablaProducto")
 	public String index(Model model) {
 		model.addAttribute("productos", productoService.findAll());
 		return "admin/tabla_producto";
 	}
 
-	@GetMapping("/formularioProducto")
+	@GetMapping("/admin/formularioProducto")
 	public String nuevaProducto(Model model) {
 		
 		model.addAttribute("producto", new Producto());
@@ -41,15 +41,15 @@ public class ProductoControlador {
 		return "admin/formulario_producto";
 	}
 
-	@PostMapping("/formularioProducto/submit")
+	@PostMapping("/admin/formularioProducto/submit")
 	public String submitNuevoProducto(Producto producto, Model model) {
 
 		productoService.save(producto);
-		return "redirect:/tablaProducto";
+		return "redirect:/admin/tablaProducto";
 
 	}
 	
-	@GetMapping("/tablaProducto/editar/{id}")
+	@GetMapping("/admin/tablaProducto/editar/{id}")
 	public String editarProducto(@PathVariable("id") Long id, Model model) {
 
 		Producto producto = productoService.findById(id);
@@ -60,13 +60,13 @@ public class ProductoControlador {
 			model.addAttribute("proveedor", proveedorServicio.findAll());
 			return "admin/formulario_producto";
 		} else {
-			return "redirect:/tablaProducto";
+			return "redirect:/admin/tablaProducto";
 		}
 
 	}
 	
 	
-	@GetMapping("/tablaProducto/borrar/{id}")
+	@GetMapping("/admin/tablaProducto/borrar/{id}")
 	public String borrarProducto(@PathVariable("id") Long id, Model model) {
 
 		Producto producto = productoService.findById(id);
@@ -75,7 +75,7 @@ public class ProductoControlador {
 			productoService.delete(producto);
 		}
 
-		return "redirect:/tablaProducto";
+		return "redirect:/admin/tablaProducto";
 
 	}
 

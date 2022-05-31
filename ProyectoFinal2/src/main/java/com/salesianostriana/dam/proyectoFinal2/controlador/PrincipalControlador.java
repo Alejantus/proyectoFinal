@@ -53,7 +53,7 @@ public class PrincipalControlador {
 		//Si no existe, volvemos a la página index que vuelve a realizar todo lo que hace el método index
 		if (p != null) {
 			model.addAttribute("producto", p);
-			return "detail";
+			return "detalle";
 		}
 		
 		return "redirect:/principal";

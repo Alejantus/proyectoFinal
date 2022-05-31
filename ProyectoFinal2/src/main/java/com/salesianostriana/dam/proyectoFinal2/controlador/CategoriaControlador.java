@@ -21,26 +21,26 @@ public class CategoriaControlador {
 	@Autowired
 	private ProductoServicio productoService;
 	
-	@GetMapping("/tablaCategoria")
+	@GetMapping("/admin/tablaCategoria")
 	public String index(Model model) {		
 		model.addAttribute("categorias", categoriaService.findAll());
 		return "admin/tabla_categoria";
 	}
 	
-	@GetMapping("/formularioCategoria")
+	@GetMapping("/amdin/formularioCategoria")
 	public String nuevaCategoria(Model model) {
 		model.addAttribute("categoria", new Categoria());
 		return "admin/formulario_categoria";
 	}
 	
-	@PostMapping("/formularioCategoria/submit")
+	@PostMapping("/admin/formularioCategoria/submit")
 	public String submitNuevaCategoria(@ModelAttribute("categoria") Categoria categoria, Model model) {
 		
 		categoriaService.save(categoria);
-		return "redirect:/tablaCategoria";
+		return "redirect:/admin/tablaCategoria";
 	}
 	
-	@GetMapping("/tablaCategoria/editar/{id}")
+	@GetMapping("/admin/tablaCategoria/editar/{id}")
 	public String editarCategoria(@PathVariable("id") Long id, Model model) {
 		
 		Categoria categoria = categoriaService.findById(id);
@@ -49,12 +49,12 @@ public class CategoriaControlador {
 			model.addAttribute("categoria", categoria);
 			return "admin/formulario_categoria";
 		} else {
-			return "redirect:/tablaCategoria";
+			return "redirect:/admin/tablaCategoria";
 		}
 		
 	}
 
-	@GetMapping("/tablaCategoria/borrar/{id}")
+	@GetMapping("/admin/tablaCategoria/borrar/{id}")
 	public String borrarCategoria(@PathVariable("id") Long id, Model model) {
 		
 		Categoria categoria = categoriaService.findById(id);
@@ -64,12 +64,12 @@ public class CategoriaControlador {
 			if (productoService.numeroProductosCategoria(categoria) == 0) {
 				categoriaService.delete(categoria);				
 			} else {
-				return "redirect:/tablaCategoria/?error=true";
+				return "redirect:/admin/tablaCategoria/?error=true";
 			}
 			
 		} 
 
-		return "redirect:/tablaCategoria";
+		return "redirect:/admin/tablaCategoria";
 		
 		
 	}
