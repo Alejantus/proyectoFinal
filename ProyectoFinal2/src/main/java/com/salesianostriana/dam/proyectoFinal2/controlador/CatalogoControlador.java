@@ -14,7 +14,7 @@ import com.salesianostriana.dam.proyectoFinal2.servicios.CategoriaServicio;
 import com.salesianostriana.dam.proyectoFinal2.servicios.ProductoServicio;
 
 @Controller
-public class PrincipalControlador {
+public class CatalogoControlador {
 	
 	private static final int NUM_PRODUCTOS_ALEATORIOS = 8;
 	
@@ -26,7 +26,7 @@ public class PrincipalControlador {
 	
 
 	
-	@GetMapping("/")
+	@GetMapping("/privates/")
 	public String index(@RequestParam(name="idCategoria", required=false) Long idCategoria, Model model) {		
 		
 		model.addAttribute("categorias", categoriaService.findAll());
@@ -41,10 +41,10 @@ public class PrincipalControlador {
 		
 		model.addAttribute("productos", productos);
 		
-		return "index";
+		return "catalogo";
 	}
 	
-	@GetMapping("/producto/{id}")
+	@GetMapping("/privates/producto/{id}")
 	public String showDetails(@PathVariable("id") Long id, Model model) {
 		
 		//Buscamos el producto por id
@@ -56,7 +56,7 @@ public class PrincipalControlador {
 			return "detalle";
 		}
 		
-		return "redirect:/principal";
+		return "redirect:/privates/";
 		
 	}
 }
