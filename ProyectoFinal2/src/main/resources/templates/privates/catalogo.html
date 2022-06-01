@@ -20,17 +20,17 @@
 		</header>
 		<nav class="navbar navbar-expand-sm background-color navbar-dark">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="index.html" th:href="@{/principal}">Inicio</a>
+				<a class="navbar-brand" href="index.html" th:href="@{/}">Inicio</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 					data-bs-target="#collapsibleNavbar">
 				</button>
 				<div class="collapse navbar-collapse" id="collapsibleNavbar">
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a class="nav-link" href="admin/tabla_producto.html" th:href="@{/admin/tablaProducto}">Admin</a>
+							<a class="nav-link">Carrito</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="login.html" th:href="@{/login}">Login</a>
+							<a class="nav-link" href="login.html" th:href="@{/logout}">Logout</a>
 						</li>
 					</ul>
 				</div>
@@ -47,7 +47,7 @@
 				</div>
 				<div class="row">
 					<div class="col-sm-3" th:each="producto : ${productos}">
-						<a href="#" th:href="@{/producto/{id}(id=${producto.id})}">
+						<a href="#" th:href="@{/privates/producto/{id}(id=${producto.id})}">
 							<div class="col-item">
 								<div class="photo">
 									<img src="http://placehold.it/350x260"

@@ -41,7 +41,7 @@ public class CatalogoControlador {
 		
 		model.addAttribute("productos", productos);
 		
-		return "catalogo";
+		return "privates/catalogo";
 	}
 	
 	@GetMapping("/privates/producto/{id}")
@@ -53,7 +53,7 @@ public class CatalogoControlador {
 		//Si no existe, volvemos a la página index que vuelve a realizar todo lo que hace el método index
 		if (p != null) {
 			model.addAttribute("producto", p);
-			return "detalle";
+			return "privates/detalle";
 		}
 		
 		return "redirect:/privates/";

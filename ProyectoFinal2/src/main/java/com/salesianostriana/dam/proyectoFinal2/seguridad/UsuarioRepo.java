@@ -27,15 +27,15 @@ public class UsuarioRepo {
 	public void init() {
 		usuarios = List.of(
 				Usuario.builder()
-					.username("admin")
-					.password("admin")
+					.username("luismi")
+					.password("12345678")
 					.role("ADMIN")
 					.nombre("Administrador")
 					.build()
 				,
 				Usuario.builder()
-				.username("usuario")
-				.password("1234")
+				.username("angel")
+				.password("12345678")
 				.role("USER")
 				.nombre("Usuario")				
 				.build()
