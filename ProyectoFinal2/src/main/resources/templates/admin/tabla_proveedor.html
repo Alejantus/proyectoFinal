@@ -20,7 +20,7 @@
 		</header>
 		<nav class="navbar navbar-expand-sm background-color navbar-dark">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="index.html" th:href="@{/principal}">Inicio</a>
+				<a class="navbar-brand" href="index.html" th:href="@{/}">Inicio</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 					data-bs-target="#collapsibleNavbar">
 				</button>
@@ -35,7 +35,7 @@
 								categoria</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="login.html" th:href="@{/login}">Login</a>
+							<a class="nav-link" href="../index.html" th:href="@{/logout}">Logout</a>
 						</li>
 					</ul>
 				</div>
@@ -47,7 +47,7 @@
 					<div style="padding-top: 20px;padding-right: 10px;padding-bottom: 20px;padding-left: 10px;"></div>
 					<div style="padding-top: 20px;padding-right: 10px;padding-bottom: 20px;padding-left: 10px;"></div>
 					<div class="d-flex justify-content-end">
-						<a href="formulario_proveedor.html" th:href="@{/formularioProveedor}" type="button"
+						<a href="formulario_proveedor.html" th:href="@{/admin/formularioProveedor}" type="button"
 							class="btn btn-success">Nuevo producto</a>
 					</div>
 					<table class="table table-hover">
@@ -63,7 +63,7 @@
 								<td th:text="${proveedor.nombre}">Nombre</td>
 								<td th:text="${proveedor.telefono}">Telefono</td>
 								<td class="operaciones">
-									<a href="#" th:href="@{/tablaProveedor/editar/{id}(id=${proveedor.id})}"
+									<a href="#" th:href="@{/admin/tablaProveedor/editar/{id}(id=${proveedor.id})}"
 										class="btn btn-primary">Editar</a>
 									<button type="button" class="btn btn-danger" data-toggle="modal"
 										data-target="#delete-modal" th:data-id="${proveedor.id}">Borrar</button>

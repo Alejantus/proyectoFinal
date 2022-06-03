@@ -33,7 +33,7 @@ public class ProductoControlador {
 	}
 
 	@GetMapping("/admin/formularioProducto")
-	public String nuevaProducto(Model model) {
+	public String nuevoProducto(Model model) {
 		
 		model.addAttribute("producto", new Producto());
 		model.addAttribute("categorias", categoriaService.findAll());
