@@ -12,10 +12,10 @@ public class PrincipalControlador {
 	private ProductoServicio productoService;
 
 	
-	@GetMapping("/prueba2")
+	@GetMapping("/")
 	public String index(Model model) {
 		model.addAttribute("productos", productoService.findAll());
-		return "index2";
+		return "index";
 	}
 
 }
