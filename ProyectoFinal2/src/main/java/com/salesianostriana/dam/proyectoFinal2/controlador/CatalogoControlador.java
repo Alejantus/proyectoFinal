@@ -32,7 +32,7 @@ public class CatalogoControlador {
 
 	
 	
-	@GetMapping("/privates/")
+	@GetMapping("/private/catalogo")
 	public String index(@RequestParam(name="idCategoria", required=false) Long idCategoria, Model model) {		
 		
 		model.addAttribute("categorias", categoriaService.findAll());
@@ -47,7 +47,7 @@ public class CatalogoControlador {
 		
 		model.addAttribute("productos", productos);
 		
-		return "privates/catalogo";
+		return "private/catalogo";
 	}
 	
 	@PostMapping("/search")
@@ -56,7 +56,7 @@ public class CatalogoControlador {
 		return "privates/catalogo";
 	}
 	
-	@GetMapping("/privates/producto/{id}")
+	@GetMapping("/private/producto/{id}")
 	public String showDetails(@PathVariable("id") Long id, Model model) {
 		
 		//Buscamos el producto por id
@@ -65,10 +65,10 @@ public class CatalogoControlador {
 		//Si no existe, volvemos a la página index que vuelve a realizar todo lo que hace el método index
 		if (p != null) {
 			model.addAttribute("producto", p);
-			return "privates/detalle";
+			return "private/detalle";
 		}
 		
-		return "redirect:/privates/";
+		return "redirect:/private/catalogo";
 		
 	}
 }

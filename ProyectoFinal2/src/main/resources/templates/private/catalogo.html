@@ -51,9 +51,43 @@
         </nav>
     </div>
     <main>
-        <h2 class="intro">Bienvenido a Pescaderia Candy</h2>
-        <p class="centro">En nuestra tienda tenemos todo tipo de pescados,mariscos...</p>
-        <p class="centro">Somos unas de las mejores pescaderias de Gines entregamos un servicio a domicilio en el que nuestro clientes siempre estan conformes con nuestro reparto</p>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <div class="trend-w3layouts">
+                <div class="container" style="margin-bottom: 3%;">
+                    <h2>Catálogo</h2>
+                    <div class="principal">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3" th:each="producto : ${productos}">
+                    <a href="#" th:href="@{/privates/producto/{id}(id=${producto.id})}">
+                        <div class="col-item">
+                            <div class="photo">
+                                <img src="http://placehold.it/350x260" th:src="${#strings.isEmpty(producto.imagen)} ? 'http://placehold.it/350x260' : ${producto.imagen}" class="img-responsive" alt="a" />
+                            </div>
+                            <div class="info">
+                                <div class="row">
+                                    <div class="price col-md-12">
+                                        <h5 th:text="${#strings.abbreviate(producto.nombre,65)}">Nombre</h5>
+                                        <div class="price-text-color">
+                                            <span th:text="${producto.descuento == 0} 
+															? ${#numbers.formatCurrency(producto.precio)} 
+															: ${#numbers.formatCurrency(producto.precio * (1 - producto.descuento))}">10</span>
+
+                                            <th:block th:if="${producto.descuento > 0}">
+                                                <span class="price-original" th:text="${#numbers.formatCurrency(producto.precio)}"></span>
+                                                <span class="label label-danger" th:text=${#numbers.formatPercent(producto.descuento,1,0)}></span>
+                                            </th:block>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>

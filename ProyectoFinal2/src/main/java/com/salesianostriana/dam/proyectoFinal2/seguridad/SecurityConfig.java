@@ -28,11 +28,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.csrf().disable()
 		.authorizeRequests()
 		.antMatchers("/private/**").hasAnyRole("USER","ADMIN")
-		.antMatchers("/admins/**").hasRole("ADMIN")
+		.antMatchers("/admin/**").hasRole("ADMIN")
 		.anyRequest().permitAll()
 		//.and().exceptionHandling().accessDeniedPage("/error")
 		.and().formLogin().loginPage("/login").loginProcessingUrl("/login")
-			.defaultSuccessUrl("/privates/")
+			.defaultSuccessUrl("/")
 			.failureUrl("/login-error").permitAll()
 		.and().logout().logoutUrl("/logout").logoutSuccessUrl("/").permitAll()
 		.and().headers().frameOptions().disable();
