@@ -56,12 +56,20 @@ public class CarritoControlador {
     public Double totalCarrito () {
     	
     	Map <Producto,Integer> carrito=carritoServicio.getProductsInCart();
-    	double total=0.0;
+    	double total=0.0,min=25,med=50,max=100,porcentajeMin=15,porcentajeMed=10,div=100;
     	if (carrito !=null) {
         	for (Producto p: carrito.keySet()) {
         		total+=p.getPrecio()*carrito.get(p);
         	}
-        	return total;
+        	if(total<=min) {
+        		total = total * (porcentajeMin/div);
+        		return total;
+        	}else if(total<=med) {
+        		total = total * (porcentajeMed/div);
+        		return total;
+        	}else if(total<=max) {
+        		return total;
+        	}
     	}
     	
     	return 0.0;
