@@ -3,6 +3,10 @@
     color: white;
 }
 
+ul {
+    list-style: none;
+}
+
 .color-form {
     color: white;
 }

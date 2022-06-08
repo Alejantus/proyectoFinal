@@ -61,7 +61,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-3" th:each="producto : ${productos}">
-                    <a href="#" th:href="@{/privates/producto/{id}(id=${producto.id})}">
+                    <a href="#" th:href="@{/private/producto/{id}(id=${producto.id})}">
                         <div class="col-item">
                             <div class="photo">
                                 <img src="http://placehold.it/350x260" th:src="${#strings.isEmpty(producto.imagen)} ? 'http://placehold.it/350x260' : ${producto.imagen}" class="img-responsive" alt="a" />
