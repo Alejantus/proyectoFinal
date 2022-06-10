@@ -202,6 +202,11 @@ thead tr:first-child {
     margin-top: 1.5em;
 }
 
+.imagen {
+    width: 400px;
+    height: 400px;
+}
+
 .product-price {
     margin-top: 20px;
 }

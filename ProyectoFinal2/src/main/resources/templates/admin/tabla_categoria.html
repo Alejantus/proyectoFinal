@@ -18,27 +18,42 @@
         <header class="pb-3 pt-3 text-center text-white background-color">
             <h1>Pescaderia Candy</h1>
         </header>
+    </div>
+    <div class="container-fluid">
         <nav class="navbar navbar-expand-sm background-color navbar-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html" th:href="@{/}">Inicio</a>
+                <a class="navbar-brand" href="index.html" th:href=@{/}>Inicio</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
 				</button>
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="admin/tabla_producto.html" th:href="@{/admin/tablaProducto}">Tabla producto</a>
+                            <a class="nav-link" href="admin/tabla_categoria.html" th:href="@{/admin/tablaCategoria}">Tabla Categoria</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="admin/tabla_proveedor.html" th:href="@{/admin/tablaProveedor}">Tabla
-								proveedor</a>
+                            <a class="nav-link" href="admin/tabla_proveedor.html" th:href="@{/admin/tablaProveedor}">Tabla Proveedor</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../index.html" th:href="@{/logout}">Logout</a>
+                    </ul>
+                    <ul class="navbar-nav me-1">
+                        <li sec:authorize="!isAuthenticated()">
+                            <a class="btn btn-danger" href="login.html" th:href="@{/login}">Login</a>
+                        </li>
+                        <li class="dropdown" sec:authorize="isAuthenticated()">
+                            <a class="btn btn-outline-danger dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span sec:authentication="name"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <li><a class="dropdown-item" href="#" th:href="@{/logout}">Cerrar Sesión</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
+    </div>
+    <main>
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -85,7 +100,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 </body>
 
 </html>

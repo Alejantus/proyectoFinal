@@ -48,6 +48,8 @@ public class ProductoServicio {
 		return result;
 	}
 	
+	public void delete(long id) { productoRepositorio.deleteById(id); }
+	
 	public int numeroProductosCategoria(Categoria categoria) {
 		return productoRepositorio.findNumProductosByCategoria(categoria);
 	}

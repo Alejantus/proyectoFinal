@@ -59,32 +59,36 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-3" th:each="producto : ${productos}">
-                    <a href="#" th:href="@{/producto/{id}(id=${producto.id})}">
-                        <div class="col-item">
-                            <div class="photo">
-                                <img src="http://placehold.it/350x260" th:src="${#strings.isEmpty(producto.imagen)} ? 'http://placehold.it/350x260' : ${producto.imagen}" class="img-responsive" alt="a" />
-                            </div>
-                            <div class="info">
-                                <div class="row">
-                                    <div class="price col-md-12">
-                                        <h5 th:text="${#strings.abbreviate(producto.nombre,65)}">Nombre</h5>
-                                        <div class="price-text-color">
-                                            <span th:text="${producto.descuento == 0} 
-															? ${#numbers.formatCurrency(producto.precio)} 
-															: ${#numbers.formatCurrency(producto.precio * (1 - producto.descuento))}">10</span>
-
-                                            <th:block th:if="${producto.descuento > 0}">
-                                                <span class="price-original" th:text="${#numbers.formatCurrency(producto.precio)}"></span>
-                                                <span class="label label-danger" th:text=${#numbers.formatPercent(producto.descuento,1,0)}></span>
-                                            </th:block>
-                                        </div>
-                                    </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="http://placehold.it/400x400" alt="" th:src="${#strings.isEmpty(producto.imagen)} ? 'http://placehold.it/350x260' : ${producto.imagen}" class="img-responsive imagen" />
+                    </div>
+                    <div class="col-md-8">
+                        <h1 class="product-name" th:text=${producto.nombre}>Nombre del producto
+                        </h1>
+                        <div class="product-price">
+                            <div class="row">
+                                <div class=col-md-4>
+                                    <span class="precio" th:text="${producto.descuento == 0} ? ${#numbers.formatCurrency(producto.precio)} : ${#numbers.formatCurrency(producto.precio * (1 - producto.descuento))}">100€</span>
                                 </div>
+                                <th:block th:if="${producto.descuento > 0}">
+                                    <div class="col-md-3 precio-no-discounted">
+                                        <span th:text="${#numbers.formatCurrency(producto.precio)}">120€</span>
+                                    </div>
+                                    <div class="col-md-3 discount">
+                                        <span class="label-discount">Descuento </span> <span class="label label-danger" th:text=${#numbers.formatPercent(producto.descuento,1,0)}>12%</span>
+                                    </div>
+                                </th:block>
                             </div>
                         </div>
-                    </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Características</h3>
+                    <p th:text="${producto.descripcion}">Descripción</p>
                 </div>
             </div>
         </div>

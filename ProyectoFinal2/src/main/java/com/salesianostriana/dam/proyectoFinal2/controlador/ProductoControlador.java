@@ -67,14 +67,8 @@ public class ProductoControlador {
 	
 	
 	@GetMapping("/admin/tablaProducto/borrar/{id}")
-	public String borrarProducto(@PathVariable("id") Long id, Model model) {
-
-		Producto producto = productoService.findById(id);
-
-		if (producto != null) {
-			productoService.delete(producto);
-		}
-
+	public String borrarProducto(@PathVariable("id") Long id) {
+		productoService.delete(id);
 		return "redirect:/admin/tablaProducto";
 
 	}
