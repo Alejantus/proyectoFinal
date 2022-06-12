@@ -29,7 +29,7 @@ public class CarritoControlador {
 		this.productoServicio = productoServicio;
 	}
 	
-	@GetMapping ("/privates/carrito")
+	@GetMapping ("/private/carrito")
     public String showCarrito (Model model) {
     	
     	if (model.addAttribute("products",carritoServicio.getProductsInCart()) == null)
@@ -42,14 +42,14 @@ public class CarritoControlador {
     	
     	carritoServicio.addProduct(productoServicio.findById(id));
     	    		 	
-    	return "redirect:/privates/carrito";
+    	return "redirect:/private/carrito";
     }
     
     @GetMapping("/borrarProducto/{id}")
     public String removeProductFromCart(@PathVariable("id") Long id) {
         
     	carritoServicio.removeProduct(productoServicio.findById(id));
-        return "redirect:/privates/carrito";
+        return "redirect:/private/carrito";
     }
     
     @ModelAttribute("total_carrito")
@@ -62,10 +62,10 @@ public class CarritoControlador {
         		total+=p.getPrecio()*carrito.get(p);
         	}
         	if(total<=min) {
-        		total = total * (porcentajeMin/div);
+        		total = total + total * (porcentajeMin/div);
         		return total;
         	}else if(total<=med) {
-        		total = total * (porcentajeMed/div);
+        		total = total + total * (porcentajeMed/div);
         		return total;
         	}else if(total<=max) {
         		return total;

@@ -48,40 +48,31 @@
         </nav>
     </div>
     <main>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <div class="trend-w3layouts">
-                <div class="container" style="margin-bottom: 3%;">
-                    <h2>Catálogo</h2>
-                    <div class="principal">
-                    </div>
-                </div>
-            </div>
+        <div class="container">
             <div class="row">
-                <div class="col-sm-3" th:each="producto : ${productos}">
-                    <a href="#" th:href="@{/private/producto/{id}(id=${producto.id})}">
-                        <div class="col-item">
-                            <div class="photo">
-                                <img src="http://placehold.it/350x260" th:src="${#strings.isEmpty(producto.imagen)} ? 'http://placehold.it/350x260' : ${producto.imagen}" class="img-responsive" alt="a" />
-                            </div>
-                            <div class="info">
-                                <div class="row">
-                                    <div class="price col-md-12">
-                                        <h5 th:text="${#strings.abbreviate(producto.nombre,65)}">Nombre</h5>
-                                        <div class="price-text-color">
-                                            <span th:text="${producto.descuento == 0} 
-															? ${#numbers.formatCurrency(producto.precio)} 
-															: ${#numbers.formatCurrency(producto.precio * (1 - producto.descuento))}">10</span>
-
-                                            <th:block th:if="${producto.descuento > 0}">
-                                                <span class="price-original" th:text="${#numbers.formatCurrency(producto.precio)}"></span>
-                                                <span class="label label-danger" th:text=${#numbers.formatPercent(producto.descuento,1,0)}></span>
-                                            </th:block>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <h2>Catálogo</h2>
+                <div class="col-md-3 col-sm-6" th:each="producto : ${productos}" style="height: 550px;">
+                    <span class="thumbnail">
+                        <img th:src="${producto.imagen}" src="https://s12.postimg.org/41uq0fc4d/item_2_180x200.png" alt="..."
+                            class="img-responsive" height="150px" />
+                        <h4><span th:text="${producto.nombre}">Nombre del producto</span></h4>
+                    <p><span th:text="${producto.descripcion}">Una descripción algo más larga del producto, para que al
+                                menos pueda ocupar más de una línea.</span>.</p>
+                    <hr class="line" />
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <p class="price"><span th:text="${producto.precio}">23,99€</span></p>
                         </div>
-                    </a>
+                        <div class="col-md-6 col-sm-6">
+                            <a href="/productoACarrito/" th:href="@{/productoACarrito/{id}(id=${producto.id})}">
+                                <button type="button" class="btn btn-primary">
+                                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>&nbsp;
+                                        Comprar
+                                    </button>
+                            </a>
+                        </div>
+                    </div>
+                    </span>
                 </div>
             </div>
         </div>
