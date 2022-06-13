@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <title>Tabla pescados</title>
 </head>
@@ -75,8 +76,8 @@
                                     <a class="thumbnail pull-left" href="#">
                                         <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;" th:src="${element.key.imagen}" /> </a>
                                     <div class="media-body">
-                                        <h4 class="media-heading"><a href="#"><span th:text="${element.key.nombre}">Product name</span></a></h4>
-                                        <h5 class="media-heading"> by <a href="#">Salesianos.com</a></h5>
+                                        <h4 class="media-heading"><span th:text="${element.key.nombre}">Product name</span></h4>
+                                        <h5 class="media-heading"> by pescaderiaCandy.com</h5>
 
                                     </div>
                                 </div>
@@ -90,10 +91,11 @@
                             <td class="col-sm-1 col-md-1 text-center"><strong th:text="${element.key.precio * element.value}">$14.61</strong></td>
                             <td class="col-sm-1 col-md-1">
 
-
-                                <button type="button" class="btn btn-danger">
-                                <span class="glyphicon glyphicon-remove"></span> Remove
-                            </button></td>
+                                <a>
+                                    <button type="button" class="btn btn-danger">
+                                        <i class="bi bi-eraser"></i>Eliminar
+                                    </button>
+                            </td>
                         </tr>
                         <tr>
                             <td>   </td>
@@ -112,12 +114,12 @@
                             <td>   </td>
                             <td>
                                 <button type="button" class="btn btn-default">
-                                    <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
+                                    <i class="bi bi-cart"></i>Continuar Comprando
                                 </button>
                             </td>
                             <td>
                                 <button type="button" class="btn btn-success">
-                                    Checkout <span class="glyphicon glyphicon-play"></span>
+                                    Checkout <i class="bi bi-caret-right"></i>
                                 </button>
                             </td>
                         </tr>

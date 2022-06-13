@@ -61,13 +61,13 @@ public class CarritoControlador {
         	for (Producto p: carrito.keySet()) {
         		total+=p.getPrecio()*carrito.get(p);
         	}
-        	if(total<=min) {
+        	if(total>=min) {
         		total = total + total * (porcentajeMin/div);
         		return total;
-        	}else if(total<=med) {
+        	}else if(total>=med) {
         		total = total + total * (porcentajeMed/div);
         		return total;
-        	}else if(total<=max) {
+        	}else if(total>=max) {
         		return total;
         	}
     	}

@@ -46,11 +46,12 @@ public class CatalogoControlador {
 		}
 		
 		model.addAttribute("productos", productos);
+		model.addAttribute("searchForm",new SearchBean());
 		
 		return "private/catalogo";
 	}
 	
-	@PostMapping("/search")
+	@PostMapping("/private/search")
 	public String buscarProducto(@ModelAttribute("searchForm") SearchBean searchBean,Model model) {
 		model.addAttribute("productos",productoService.findByNombre(searchBean.getSearch()));
 		return "private/catalogo";
