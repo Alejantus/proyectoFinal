@@ -43,5 +43,8 @@ public class Venta {
 	@ToString.Exclude
 	@OneToMany(mappedBy = "venta",fetch = FetchType.EAGER)
 	private List<LineaDeVenta> listaDeVenta = new ArrayList<>();
+	
+	private double totalConIva;
+
 
 }

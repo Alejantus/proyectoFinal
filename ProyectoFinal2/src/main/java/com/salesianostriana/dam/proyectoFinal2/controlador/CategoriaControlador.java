@@ -27,7 +27,7 @@ public class CategoriaControlador {
 		return "admin/tabla_categoria";
 	}
 	
-	@GetMapping("/amdin/formularioCategoria")
+	@GetMapping("/admin/formularioCategoria")
 	public String nuevaCategoria(Model model) {
 		model.addAttribute("categoria", new Categoria());
 		return "admin/formulario_categoria";

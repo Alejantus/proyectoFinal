@@ -42,6 +42,10 @@ public class ProductoServicio {
 		return productoRepositorio.save(producto);
 	}
 	
+	public Producto edit(Producto p) {
+		return productoRepositorio.save(p);
+	}
+	
 	public Producto delete(Producto producto) {
 		Producto result = findById(producto.getId());
 		productoRepositorio.delete(result);
@@ -59,14 +63,15 @@ public class ProductoServicio {
 	}
 	
 	public List<Producto> obtenerProductosAleatorios(int numero) {
-		// Obtenemos los ids de todos los productos
 		List<Long> listaIds = productoRepositorio.obtenerIds();
-		// Los desordenamos 
 		Collections.shuffle(listaIds);
-		// Nos quedamos con los N primeros, con N = numero.
 		listaIds = listaIds.stream().limit(numero).collect(Collectors.toList());
-		// Buscamos los productos con esos IDs y devolvemos la lista
 		return productoRepositorio.findAllById(listaIds);
-
+	}
+	
+	public Producto bajarUnidades(long id , int ud) {
+		Producto p = findById(id);
+		p.setUnidades(p.getUnidades()-ud);
+		return (p);
 	}
 }
