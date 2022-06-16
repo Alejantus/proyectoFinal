@@ -38425,9 +38425,15 @@ Caused by: java.nio.channels.OverlappingFileLockException
 	at java.base/java.nio.channels.FileChannel.tryLock(FileChannel.java:1191)
 	at org.h2.mvstore.FileStore.open(FileStore.java:163)
 	... 28 more
+<<<<<<< HEAD
 2022-06-13 16:00:50 database: flush
 org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:C:/Users/aleja/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]"
 General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/aleja/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]" [50000-200]
+=======
+2022-06-14 12:57:06 database: flush
+org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fernandez.goale21/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fernandez.goale21/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]" [50000-200]
+>>>>>>> e6f83a4e40b2defdf7360cce58169a624551f19d
 	at org.h2.message.DbException.get(DbException.java:194)
 	at org.h2.message.DbException.convert(DbException.java:347)
 	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
@@ -38461,12 +38467,21 @@ General error: "java.lang.IllegalStateException: The file is locked: nio:C:/User
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:833)
+<<<<<<< HEAD
 Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: The file is locked: nio:C:/Users/aleja/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]"
 General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/aleja/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]" [50000-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	... 33 more
 Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/aleja/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]
+=======
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fernandez.goale21/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fernandez.goale21/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 33 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/fernandez.goale21/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]
+>>>>>>> e6f83a4e40b2defdf7360cce58169a624551f19d
 	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
 	at org.h2.mvstore.FileStore.open(FileStore.java:166)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
@@ -38479,9 +38494,15 @@ Caused by: java.nio.channels.OverlappingFileLockException
 	at java.base/java.nio.channels.FileChannel.tryLock(FileChannel.java:1191)
 	at org.h2.mvstore.FileStore.open(FileStore.java:163)
 	... 28 more
+<<<<<<< HEAD
 2022-06-13 16:00:50 database: flush
 org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:C:/Users/aleja/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]"
 General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/aleja/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]" [50000-200]
+=======
+2022-06-14 13:02:16 database: flush
+org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fernandez.goale21/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fernandez.goale21/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]" [50000-200]
+>>>>>>> e6f83a4e40b2defdf7360cce58169a624551f19d
 	at org.h2.message.DbException.get(DbException.java:194)
 	at org.h2.message.DbException.convert(DbException.java:347)
 	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
@@ -38515,12 +38536,21 @@ General error: "java.lang.IllegalStateException: The file is locked: nio:C:/User
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:833)
+<<<<<<< HEAD
 Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: The file is locked: nio:C:/Users/aleja/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]"
 General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/aleja/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]" [50000-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	... 33 more
 Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/aleja/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]
+=======
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fernandez.goale21/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fernandez.goale21/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 33 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/fernandez.goale21/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]
+>>>>>>> e6f83a4e40b2defdf7360cce58169a624551f19d
 	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
 	at org.h2.mvstore.FileStore.open(FileStore.java:166)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
@@ -38533,9 +38563,15 @@ Caused by: java.nio.channels.OverlappingFileLockException
 	at java.base/java.nio.channels.FileChannel.tryLock(FileChannel.java:1191)
 	at org.h2.mvstore.FileStore.open(FileStore.java:163)
 	... 28 more
+<<<<<<< HEAD
 2022-06-13 18:24:02 database: flush
 org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:C:/Users/aleja/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]"
 General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/aleja/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]" [50000-200]
+=======
+2022-06-14 13:28:45 database: flush
+org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fernandez.goale21/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fernandez.goale21/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]" [50000-200]
+>>>>>>> e6f83a4e40b2defdf7360cce58169a624551f19d
 	at org.h2.message.DbException.get(DbException.java:194)
 	at org.h2.message.DbException.convert(DbException.java:347)
 	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
@@ -38569,12 +38605,21 @@ General error: "java.lang.IllegalStateException: The file is locked: nio:C:/User
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:833)
+<<<<<<< HEAD
 Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: The file is locked: nio:C:/Users/aleja/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]"
 General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/aleja/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]" [50000-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	... 33 more
 Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/aleja/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]
+=======
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fernandez.goale21/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fernandez.goale21/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 33 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/fernandez.goale21/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]
+>>>>>>> e6f83a4e40b2defdf7360cce58169a624551f19d
 	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
 	at org.h2.mvstore.FileStore.open(FileStore.java:166)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
@@ -38587,9 +38632,15 @@ Caused by: java.nio.channels.OverlappingFileLockException
 	at java.base/java.nio.channels.FileChannel.tryLock(FileChannel.java:1191)
 	at org.h2.mvstore.FileStore.open(FileStore.java:163)
 	... 28 more
+<<<<<<< HEAD
 2022-06-13 18:24:02 database: flush
 org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:C:/Users/aleja/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]"
 General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/aleja/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]" [50000-200]
+=======
+2022-06-14 13:44:15 database: flush
+org.h2.message.DbException: Error General : "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fernandez.goale21/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fernandez.goale21/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]" [50000-200]
+>>>>>>> e6f83a4e40b2defdf7360cce58169a624551f19d
 	at org.h2.message.DbException.get(DbException.java:194)
 	at org.h2.message.DbException.convert(DbException.java:347)
 	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
@@ -38623,12 +38674,21 @@ General error: "java.lang.IllegalStateException: The file is locked: nio:C:/User
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:833)
+<<<<<<< HEAD
 Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: The file is locked: nio:C:/Users/aleja/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]"
 General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/aleja/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]" [50000-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	... 33 more
 Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/aleja/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]
+=======
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fernandez.goale21/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/fernandez.goale21/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 33 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/fernandez.goale21/Documents/proyectoFinal/ProyectoFinal2/db/basededatos.mv.db [1.4.200/7]
+>>>>>>> e6f83a4e40b2defdf7360cce58169a624551f19d
 	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
 	at org.h2.mvstore.FileStore.open(FileStore.java:166)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)

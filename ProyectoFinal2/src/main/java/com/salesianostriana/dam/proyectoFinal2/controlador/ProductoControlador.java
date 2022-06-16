@@ -72,5 +72,5 @@ public class ProductoControlador {
 		return "redirect:/admin/tablaProducto";
 
 	}
-
+	
 }
