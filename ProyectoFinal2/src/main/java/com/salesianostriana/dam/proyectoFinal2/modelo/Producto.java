@@ -30,6 +30,7 @@ public class Producto {
 	private double precio;
 	private double descuento;
 	private String imagen;
+	private int unidades;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaCaducidad;

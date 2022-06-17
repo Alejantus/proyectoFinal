@@ -2,105 +2,113 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/main.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Tabla pescados</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/main.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+	<title>Tabla pescados</title>
 </head>
 
 <body>
-    <div class="container-fluid">
-        <header class="pb-3 pt-3 text-center text-white background-color">
-            <h1>Pescaderia Candi</h1>
-        </header>
-    </div>
-    <div class="container-fluid">
-        <nav class="navbar navbar-expand-sm background-color navbar-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html" th:href=@{/}>Inicio</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                    <span class="navbar-toggler-icon"></span>
+	<div class="container-fluid">
+		<header class="pb-3 pt-3 text-center text-white background-color">
+			<h1>Pescaderia Candi</h1>
+		</header>
+	</div>
+	<div class="container-fluid">
+		<nav class="navbar navbar-expand-sm background-color navbar-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="index.html" th:href=@{/}>Inicio</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#collapsibleNavbar">
+					<span class="navbar-toggler-icon"></span>
 				</button>
-                <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="admin/tabla_producto.html" th:href="@{/admin/tablaProducto}">Tabla Producto</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="admin/tabla_proveedor.html" th:href="@{/admin/tablaProveedor}">Tabla Proveedor</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav me-1">
-                        <li sec:authorize="!isAuthenticated()">
-                            <a class="btn btn-danger" href="login.html" th:href="@{/login}">Login</a>
-                        </li>
-                        <li class="dropdown" sec:authorize="isAuthenticated()">
-                            <a class="btn btn-outline-danger dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                <span sec:authentication="name"></span>
-                            </a>
+				<div class="collapse navbar-collapse" id="collapsibleNavbar">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link" href="admin/tabla_producto.html" th:href="@{/admin/tablaProducto}">Tabla
+								Producto</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="admin/tabla_proveedor.html"
+								th:href="@{/admin/tablaProveedor}">Tabla Proveedor</a>
+						</li>
+					</ul>
+					<ul class="navbar-nav me-1">
+						<li sec:authorize="!isAuthenticated()">
+							<a class="btn btn-danger" href="login.html" th:href="@{/login}">Login</a>
+						</li>
+						<li class="dropdown" sec:authorize="isAuthenticated()">
+							<a class="btn btn-outline-danger dropdown-toggle" href="#" role="button"
+								id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+								<span sec:authentication="name"></span>
+							</a>
 
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <li><a class="dropdown-item" href="#" th:href="@{/logout}">Cerrar Sesión</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
-    <main>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div style="padding-top: 20px;padding-right: 10px;padding-bottom: 20px;padding-left: 10px;"></div>
-                    <div style="padding-top: 20px;padding-right: 10px;padding-bottom: 20px;padding-left: 10px;"></div>
-                    <div class="d-flex justify-content-end">
-                        <a href="formulario_categoria.html" th:href="@{/formularioCategoria}" type="button" class="btn btn-success">Nuevo producto</a>
-                    </div>
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Imagen</th>
-                                <th>Nombre</th>
-                                <th>Operaciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr th:each="categoria : ${categorias}">
-                                <td><img th:src="${not (#strings.isEmpty(categoria.imagen))} ? ${categoria.imagen} : 'http://placehold.it/48x48'" class="img-responsive icono-categoria" alt="imagen" /></td>
-                                <td th:text="${categoria.nombre}">Nombre</td>
-                                <td class="operaciones"><a href="#" th:href="@{/admin/tablaCategoria/editar/{id}(id=${categoria.id})}" class="btn btn-primary">Editar</a>
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal" th:data-id="${categoria.id}">Borrar</button>
-                                    <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog">
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+								<li><a class="dropdown-item" href="#" th:href="@{/logout}">Cerrar Sesión</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+	<main>
+		<div class="container">
+			<div class="row">
+				<div class="col">				
+					<div style="padding-top: 20px;padding-right: 10px;padding-bottom: 20px;padding-left: 10px;"></div>
+					<div style="padding-top: 20px;padding-right: 10px;padding-bottom: 20px;padding-left: 10px;"></div>
+					<div class="d-flex justify-content-end">
+						<a href="formulario_categoria.html" th:href="@{/admin/formularioCategoria}" type="button"
+							class="btn btn-success">Nuevo producto</a>
+					</div>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Imagen</th>
+								<th>Nombre</th>
+								<th>Operaciones</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="categoria : ${categorias}">
+								<td><img th:src="${not (#strings.isEmpty(categoria.imagen))} ? ${categoria.imagen} : 'http://placehold.it/48x48'"
+										class="img-responsive icono-categoria" alt="imagen" /></td>
+								<td th:text="${categoria.nombre}">Nombre</td>
+								<td class="operaciones"><a href="#"
+										th:href="@{/admin/tablaCategoria/editar/{id}(id=${categoria.id})}"
+										class="btn btn-primary">Editar</a>
+									<a href="#" th:href="@{/admin/tablaCategoria/borrar/{id}(id=${categoria.id})}"
+										class="btn btn-danger">Borrar</a>
+									<!--<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal" th:data-id="${producto.id}">Borrar</button>
+                                    <div class="modal fade" id="delete-modal" role="dialog">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-															<span aria-hidden="true">&times;</span>
-														</button>
-                                                    <h4 class="modal-title">Borrar categoría</h4>
+													<span aria-hidden="true">&times;</span>
+												</button>
+                                                    <h4 class="modal-title">Borrar producto</h4>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p>¿Está usted seguro de borrar esta categoría?</p>
+                                                    <p>¿Está usted seguro de borrar esta producto?</p>
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                                                    <a th:href="@{/admin/tablaCategoria/borrar/{id}(id=${categoria.id})}" class="btn btn-danger">Sí</a>
+                                                    <a th:href="@{/admin/tablaProducto/borrar/{id}(id=${producto.id})}" class="btn btn-danger">Sí</a>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </main>
+                                    </div>-->
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</main>
 </body>
 
 </html>
