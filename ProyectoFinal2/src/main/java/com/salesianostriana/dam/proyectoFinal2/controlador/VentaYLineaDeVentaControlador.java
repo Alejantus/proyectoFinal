@@ -42,15 +42,15 @@ public class VentaYLineaDeVentaControlador {
 		return "detalleVenta";
 	}
 	
-	@GetMapping("/admin/borrarLineaVenta/{id}")
+	@GetMapping("/private/borrarLineaVenta/{id}")
 	public String borrarLineaVenta(@PathVariable("id") Long id, Model model) {
 		LineaDeVenta lineaDeVenta = lineaDeVentaServicio.findById(id);
 		long id_venta = lineaDeVenta.getVenta().getId();
-		lineaDeVentaServicio.borrarUnaUdProductoDeLineaVenta(id);
+		lineaDeVentaServicio.borrarUnaUnidadProductoDeLineaVenta(id);
 		if(lineaDeVenta.getCantidad()==0){
 			lineaDeVentaServicio.delete(lineaDeVenta);
 			}
-		return "redirect:/private/historialVentas/detallesVenta/" + id_venta;
+		return "redirect:/private/historialVentas/detalleVenta/" + id_venta;
 	}
 	
 }

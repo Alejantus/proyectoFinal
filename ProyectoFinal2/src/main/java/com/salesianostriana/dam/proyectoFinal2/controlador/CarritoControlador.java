@@ -59,7 +59,7 @@ public class CarritoControlador {
 		double total = 0.0;
 		if (carrito != null) {
 			for (Producto p : carrito.keySet()) {
-				total += p.getPrecio() * carrito.get(p);
+				total += p.getPrecio() * p.getUnidades();
 			}
 			return total;
 		}

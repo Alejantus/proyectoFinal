@@ -29,7 +29,7 @@ public class LineaDeVentaServicio extends BaseServicio<LineaDeVenta, Long, Linea
 		return lineaVentaRepositorio.save(lv);
 	}
 
-	public LineaDeVenta borrarUnaUdProductoDeLineaVenta(long id) {
+	public LineaDeVenta borrarUnaUnidadProductoDeLineaVenta(long id) {
 		LineaDeVenta lineaDeVenta = findById(id);
 		lineaDeVenta.setCantidad(lineaDeVenta.getCantidad() - 1);
 		Venta v = lineaDeVenta.getVenta();

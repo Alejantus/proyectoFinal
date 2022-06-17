@@ -43,7 +43,7 @@ public class Venta {
 	@Builder.Default
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
-	@OneToMany(mappedBy = "venta",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "venta",fetch = FetchType.EAGER, cascade=javax.persistence.CascadeType.REMOVE, orphanRemoval = true)
 	private List<LineaDeVenta> listaDeVenta = new ArrayList<>();
 	
 	private double totalConIva;

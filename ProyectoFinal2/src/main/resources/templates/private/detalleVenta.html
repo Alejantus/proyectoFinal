@@ -57,20 +57,21 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>Fecha Venta</th>    
-                                <th>Total</th>
-                                <th>Total con iva</th>
+                                <th>Nombre</th>    
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Subtotal</th>
                                 <th></th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr th:each="venta : ${ventas}">
-                                <td th:text="${#temporals.format(venta.fecha)}">Ventas</td>
-                                <td th:text="${#numbers.formatCurrency(venta.total)}">Ventas</td>
-                                <td th:text="${#numbers.formatCurrency(venta.totalConIva)}">Ventas</td>
-                                <td><a class="btn btn-warning" href="#" th:href="@{/private/borrarVenta/{id}(id=venta.id)}">Eliminar</a></td>
-                                <td><a class="btn btn-primary" href="#" th:href="@{/private/historialVentas/detallesVenta/{id}(id=venta.id)}">Detalles</a></td>
+                            <tr th:each="lineaDeVenta : ${lineasDeVenta}">
+                                <td th:text="${#temporals.format(lineaDeVenta.nombre)}">Ventas</td>
+                                <td th:text="${#numbers.formatCurrency(lineaDeVenta.precio)}">Ventas</td>
+                                <td th:text="${#numbers.formatCurrency(lineaDeVenta.cantidad)}">Ventas</td>
+                                <td th:text="${#numbers.formatCurrency(lineaDeVenta.subtotal)}">Ventas</td>
+                                <td><a class="btn btn-warning" href="#" th:href="@{/private/borrarLineaVenta/{id}(id=lineaDeVenta.id)}">Eliminar</a></td>
                             </tr>
                         </tbody>
                     </table>
