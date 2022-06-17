@@ -104,8 +104,8 @@ public class CarritoServicio {
 	public double precioEspecial(double totalVenta) {
 
 		LocalDate hoy = LocalDate.now();
-		LocalDate fechaDescuento = LocalDate.of(2022, 06, 15);
-		LocalDate fechaFinalDescuento = LocalDate.of(2022, 06, 30);
+		LocalDate fechaDescuento = LocalDate.of(2022, 12, 15);
+		LocalDate fechaFinalDescuento = LocalDate.of(2022, 12, 30);
 
 		if (hoy.compareTo(fechaDescuento) > 0 && hoy.compareTo(fechaFinalDescuento) < 0)
 			totalVenta = totalVenta - ((totalVenta * 10) / 100);

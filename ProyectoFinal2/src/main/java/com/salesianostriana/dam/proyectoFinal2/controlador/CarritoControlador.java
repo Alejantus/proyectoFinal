@@ -74,7 +74,7 @@ public class CarritoControlador {
 	@PostMapping("/checkout")
     public String checkout(){
     	  	carritoServicio.checkout();
-    return "redirect:/user/indexUsuario";
+    return "redirect:/private/catalogo";
     }
 
 }

@@ -26,7 +26,7 @@ public class VentaYLineaDeVentaControlador {
 	@GetMapping("private/historialVentas")
 	public String mostrarVentas(Model model) {
 		model.addAttribute("ventas",ventaServicio.findAll());
-		return "ventas";
+		return "private/ventas";
 	}	
 	
 	
