@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesianostriana.dam.proyectoFinal2.servicios.CarritoServicio;
 import com.salesianostriana.dam.proyectoFinal2.servicios.ProductoServicio;
@@ -24,7 +25,6 @@ public class CarritoControlador {
 
 	@Autowired
 	public CarritoControlador(CarritoServicio carritoServicio, ProductoServicio productoServicio) {
-		super();
 		this.carritoServicio = carritoServicio;
 		this.productoServicio = productoServicio;
 	}
@@ -32,7 +32,7 @@ public class CarritoControlador {
 	@GetMapping("/private/carrito")
 	public String showCarrito(Model model) {
 
-		if (model.addAttribute("products", carritoServicio.getProductsInCart()) == null)
+		if (model.addAttribute("productos", carritoServicio.getProductsInCart()) == null)
 			return "redirect:/privates/";
 		return "private/carrito";
 	}
@@ -52,20 +52,29 @@ public class CarritoControlador {
 		return "redirect:/private/carrito";
 	}
 
-	@ModelAttribute("total_carrito")
+	@ModelAttribute("totalCarrito")
 	public Double totalCarrito() {
 
 		Map<Producto, Integer> carrito = carritoServicio.getProductsInCart();
-		double total = 0.0, min = 25, med = 50, max = 100, porcentajeMin = 15, porcentajeMed = 10, div = 100;
+		double total = 0.0;
 		if (carrito != null) {
 			for (Producto p : carrito.keySet()) {
 				total += p.getPrecio() * carrito.get(p);
 			}
-
 			return total;
-
 		}
 		return 0.0;
 	}
+	
+	@ModelAttribute("totalCarritoIva")
+	public double totalCarritoIva() {
+		return carritoServicio.calcularIva(carritoServicio.precioEspecial(totalCarrito()));
+	}
+	
+	@PostMapping("/checkout")
+    public String checkout(){
+    	  	carritoServicio.checkout();
+    return "redirect:/user/indexUsuario";
+    }
 
 }

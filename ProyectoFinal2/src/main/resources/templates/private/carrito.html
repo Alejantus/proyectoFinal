@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="../static/main.css" th:href="@{/main.css}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <title>Tabla pescados</title>
@@ -51,77 +51,89 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col">
-                <div style="padding-top: 20px;padding-right: 10px;padding-bottom: 20px;padding-left: 10px;"></div>
-                <div style="padding-top: 20px;padding-right: 10px;padding-bottom: 20px;padding-left: 10px;"></div>
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Producto</th>
-                            <th>Cantidad</th>
-                            <th class="text-center">Precio</th>
-                            <th class="text-center">Subtotal</th>
-                            <th> </th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <h1>Carrito</h1>
+                <form action="checkout" th:action="@{/checkout}" th:object="${venta}" method="post">
+                    <div style="padding-top: 20px;padding-right: 10px;padding-bottom: 20px;padding-left: 10px;"></div>
+                    <div style="padding-top: 20px;padding-right: 10px;padding-bottom: 20px;padding-left: 10px;"></div>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th class="text-center">Precio</th>
+                                <th class="text-center">Subtotal</th>
+                                <th> </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="producto : ${productos}">
+                                <td class="col-sm-8 col-md-6">
+                                    <div class="media">
+                                        <a class="thumbnail pull-left" href="#">
+                                            <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;" th:src="${producto.key.imagen}" /> </a>
+                                        <div class="media-body">
+                                            <h4 class="media-heading"><span th:text="${producto.key.nombre}">Product name</span></h4>
+                                            <h5 class="media-heading"> by pescaderiaCandy.com</h5>
 
-
-
-                        <tr th:each="element : ${products.entrySet()}">
-                            <td class="col-sm-8 col-md-6">
-                                <div class="media">
-                                    <a class="thumbnail pull-left" href="#">
-                                        <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;" th:src="${element.key.imagen}" /> </a>
-                                    <div class="media-body">
-                                        <h4 class="media-heading"><span th:text="${element.key.nombre}">Product name</span></h4>
-                                        <h5 class="media-heading"> by pescaderiaCandy.com</h5>
-
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td class="col-sm-1 col-md-1" style="text-align: center">
-                                <input class="form-control" id="inputQuantity" value="3" th:value="${element.value}" type="text" />
-                            </td>
-                            <td class="col-sm-1 col-md-1 text-center"><strong th:text="${element.key.precio}">$4.87</strong></td>
+                                </td>
+                                <td class="col-sm-1 col-md-1" style="text-align: center">
+                                    <input type="number" class="form-control" id="inputQuantity" th:value="${producto.key.unidades}" />
+                                </td>
+                                <td class="col-sm-1 col-md-1 text-center"><strong th:text="${producto.key.precio}">$4.87</strong></td>
 
 
-                            <td class="col-sm-1 col-md-1 text-center"><strong th:text="${element.key.precio * element.value}">$14.61</strong></td>
-                            <td class="col-sm-1 col-md-1">
+                                <td class="col-sm-1 col-md-1 text-center"><strong th:text="${producto.key.precio * producto.value}">$14.61</strong></td>
+                                <td class="col-sm-1 col-md-1">
 
-                                <a>
-                                    <button type="button" class="btn btn-danger">
-                                        <i class="bi bi-eraser"></i>Eliminar
-                                    </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>   </td>
-                            <td>   </td>
-                            <td>   </td>
-                            <td>
-                                <h3>Total</h3>
-                            </td>
-                            <td class="text-right">
-                                <h3><strong th:text="${total_carrito}">100€</strong></h3>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>   </td>
-                            <td>   </td>
-                            <td>   </td>
-                            <td>
-                                <button type="button" class="btn btn-default" th:href="@{/private/catalogo}">
-                                   <i class="bi bi-cart"></i>Continuar Comprando
-                                </button>
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-success">
-                                    Checkout <i class="bi bi-caret-right"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                    <a>
+                                        <a class="btn btn-danger" th:href="@{/borrarProducto/{id}(id=${producto.key.id})}">
+                                            <i class="bi bi-eraser"></i>Eliminar
+                                        </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>   </td>
+                                <td>   </td>
+                                <td>   </td>
+                                <td>
+                                    <h3>Total</h3>
+                                </td>
+                                <td class="text-right">
+                                    <h3><strong th:text="${totalCarrito}">100€</strong></h3>
+                                </td>
+                            </tr>
+                            <th:block th:if="${(total_carrito) >= 25}">
+                                <tr>
+                                    <td>   </td>
+                                    <td>   </td>
+                                    <td>   </td>
+                                    <td>
+                                        <h3>Total con iva</h3>
+                                    </td>
+                                    <td class="text-right">
+                                        <h3><strong th:text="${totalCarritoIva}">100€</strong></h3>
+                                    </td>
+                                </tr>
+                            </th:block>
+                            <tr>
+                                <td>   </td>
+                                <td>   </td>
+                                <td>   </td>
+                                <td>
+                                    <a class="btn btn-default" th:href="@{/private/catalogo}">
+                                    <i class="bi bi-cart"></i>Continuar Comprando
+                                    </a>
+                                </td>
+                                <td>
+                                    <button class="btn btn-success btn-block mb-4" type="submit" name="checkout"
+					                value="checkout">Comprar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
             </div>
         </div>
     </div>

@@ -69,9 +69,9 @@ public class ProductoServicio {
 		return productoRepositorio.findAllById(listaIds);
 	}
 	
-	public Producto bajarUnidades(long id , int ud) {
+	public Producto bajarUnidades(long id , int unidades) {
 		Producto p = findById(id);
-		p.setUnidades(p.getUnidades()-ud);
+		p.setUnidades(p.getUnidades()-unidades);
 		return (p);
 	}
 }

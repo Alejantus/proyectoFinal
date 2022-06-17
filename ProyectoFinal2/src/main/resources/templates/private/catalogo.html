@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="../static/main.css" th:href="@{/main.css}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <title>Principal</title>
@@ -59,26 +59,28 @@
                     </button>
                 </form>
                 <div class="col-md-3 col-sm-6" th:each="producto : ${productos}" style="height: 550px;">
-                    <span class="thumbnail">
+                    <a href="#" th:href="@{/private/producto/{id}(id=${producto.id})}">
+                        <span class="thumbnail">
                         <img th:src="${producto.imagen}" src="https://s12.postimg.org/41uq0fc4d/item_2_180x200.png" alt="..."
                             class="img-responsive" height="150px" />
                         <h4><span th:text="${producto.nombre}">Nombre del producto</span></h4>
-                    <p><span th:text="${producto.descripcion}">Una descripción algo más larga del producto, para que al
-                                menos pueda ocupar más de una línea.</span>.</p>
-                    <hr class="line" />
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <p class="price"><span th:text="${producto.precio}">23,99€</span></p>
+                        <p><span th:text="${producto.descripcion}">Una descripción algo más larga del producto, para que al
+                                    menos pueda ocupar más de una línea.</span>.</p>
+                        <hr class="line" />
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <p class="price"><span th:text="${producto.precio}">23,99€</span></p>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <a href="#" th:href="@{/productoACarrito/{id}(id=${producto.id})}">
+                                    <button type="button" class="btn btn-primary">
+                                            Comprar
+                                        </button>
+                                </a>
+                            </div>
                         </div>
-                        <div class="col-md-6 col-sm-6">
-                            <a href="/productoACarrito/" th:href="@{/productoACarrito/{id}(id=${producto.id})}">
-                                <button type="button" class="btn btn-primary">
-                                        Comprar
-                                    </button>
-                            </a>
-                        </div>
-                    </div>
-                    </span>
+                        </span>
+                    </a>
                 </div>
             </div>
         </div>

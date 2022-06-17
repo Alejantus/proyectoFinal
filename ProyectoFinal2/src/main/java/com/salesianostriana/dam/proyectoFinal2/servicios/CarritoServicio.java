@@ -88,16 +88,12 @@ public class CarritoServicio {
 
 	}
 
-	public void borrarCarritoCompleto() {
-		products.clear();
-	}
-
 	public double calcularIva(double total) {
-
-		if(total<=25) {
-			total += 5;
-		}else if(total<=50) {
-			total += 15;
+		double div=100.0,min=10,max=10;
+		if(total>=25) {
+			total = total + total * (min/div);
+		}else if(total>=50) {
+			total = total + total * (max/div);
 		}else if(total>=100){
 			
 		}

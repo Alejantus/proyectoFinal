@@ -30,13 +30,13 @@ public class LineaDeVentaServicio extends BaseServicio<LineaDeVenta, Long, Linea
 	}
 
 	public LineaDeVenta borrarUnaUdProductoDeLineaVenta(long id) {
-		LineaDeVenta lv = findById(id);
-		lv.setCantidad(lv.getCantidad() - 1);
-		Venta v = lv.getVenta();
-		v.setTotal(lv.getVenta().getTotal() - lv.getProducto().getPrecio());
+		LineaDeVenta lineaDeVenta = findById(id);
+		lineaDeVenta.setCantidad(lineaDeVenta.getCantidad() - 1);
+		Venta v = lineaDeVenta.getVenta();
+		v.setTotal(lineaDeVenta.getVenta().getTotal() - lineaDeVenta.getProducto().getPrecio());
 		v.setTotalConIva(carritoServicio.precioEspecial(carritoServicio.calcularIva(v.getTotal())));
 		ventaServicio.edit(v);
-		return edit(lv);
+		return edit(lineaDeVenta);
 	}
 
 }

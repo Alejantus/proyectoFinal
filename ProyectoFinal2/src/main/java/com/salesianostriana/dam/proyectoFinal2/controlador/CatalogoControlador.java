@@ -60,10 +60,8 @@ public class CatalogoControlador {
 	@GetMapping("/private/producto/{id}")
 	public String showDetails(@PathVariable("id") Long id, Model model) {
 		
-		//Buscamos el producto por id
 		Producto p = productoService.findById(id);
-		//Si el producto no es null (si existe el producto buscado) se añade al modelo y mostramos la página del detalle detail.html
-		//Si no existe, volvemos a la página index que vuelve a realizar todo lo que hace el método index
+		
 		if (p != null) {
 			model.addAttribute("producto", p);
 			return "private/detalle";
